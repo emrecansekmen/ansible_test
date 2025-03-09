@@ -1,0 +1,7 @@
+- name: Ping 8.8.8.8 from the target machine
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Ping 8.8.8.8
+      ping:
+        data: 8.8.8.8
