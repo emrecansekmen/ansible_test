@@ -1,0 +1,12 @@
+---
+- name: Get hostname of all hosts in 'Envanter' inventory
+  hosts: Envanter  # Burada 'Envanter' adındaki envanteri hedefliyoruz
+  gather_facts: no  # Sistem bilgilerini toplamayı engelliyoruz çünkü sadece hostname komutunu çalıştıracağız
+  tasks:
+    - name: Run hostname command
+      command: hostname  # Hedef sunucularda hostname komutunu çalıştırır
+      register: hostname_result  # Çıktıyı 'hostname_result' değişkenine kaydeder
+
+    - name: Show the hostname output
+      debug:
+        msg: "The hostname of {{ inventory_hostname }} is {{ hostname_result.stdout }}"
