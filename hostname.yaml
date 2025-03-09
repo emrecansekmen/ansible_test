@@ -1,6 +1,6 @@
 ---
 - name: Get hostname of all hosts in 'Envanter' inventory
-  hosts: Envanter  # Burada 'Envanter' adındaki envanteri hedefliyoruz
+  hosts: all  # Burada 'Envanter' adındaki envanteri hedefliyoruz
   gather_facts: no  # Sistem bilgilerini toplamayı engelliyoruz çünkü sadece hostname komutunu çalıştıracağız
   tasks:
     - name: Run hostname command
