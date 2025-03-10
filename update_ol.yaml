@@ -1,0 +1,9 @@
+---
+- name: Update Oracle Linux system
+  hosts: all
+  become: yes  # root yetkisi gerektiren komutlar için
+  tasks:
+    - name: Ensure the system is updated
+      yum:
+        name: '*'
+        state: latest  # Tüm paketlerin en son sürümünü yükler
