@@ -1,6 +1,6 @@
 ---
 - name: List missing patches on Oracle Linux
-  hosts: oracle_linux
+  hosts: all
   become: yes
   tasks:
     - name: Check for available updates
