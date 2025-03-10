@@ -1,0 +1,13 @@
+---
+- name: Update MDATP definitions
+  hosts: all  # veya hedef sunucu grubu/adı
+  become: yes  # root yetkisi gerektiren komutlar için
+  tasks:
+    - name: Run MDATP definitions update
+      command: mdatp definition update
+      register: mdatp_update_output
+      ignore_errors: yes  # hata alırsanız işlem devam eder
+
+    - name: Show MDATP update output
+      debug:
+        var: mdatp_update_output
