@@ -1,5 +1,5 @@
 ---
-- name: List missing patches on Oracle Linux
+- name: List missing patches (packages) on Oracle Linux
   hosts: all
   become: yes
   tasks:
@@ -8,8 +8,8 @@
         list: updates
       register: yum_updates
 
-    - name: Display missing patches
+    - name: Display missing package names
       debug:
-        msg: "{{ item }}"
+        msg: "{{ item.pkgname }}"
       loop: "{{ yum_updates.results }}"
       when: yum_updates.results is defined and yum_updates.results | length > 0
